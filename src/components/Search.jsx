@@ -1,63 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import './BestSellers.css';
+import React, { useState } from 'react';
 
-function BestSellers() {
-    const [lists, setLists] = useState([]);
+function Search() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-        const fetchLists = async () => {
-            const nytApiKey = import.meta.env.VITE_NYTIMES_API_KEY;
-            const response = await fetch(
-                `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${nytApiKey}`
-            );
-            const data = await response.json();
-            setLists(data.results.lists);
-        };
+    const handleSearch = async () => {
+        const googleApiKey = import.meta.env.VITE_GOOGLE_API_KEY;
 
-        fetchLists();
-    }, []);
+        const response = await fetch(
+            `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${googleApiKey}`
+        );
+        const data = await response.json();
+        setBooks(data.items || []);
+    };
 
     return (
-        <div className="best-sellers">
-            <h1>NYT Best Sellers</h1>
-            {lists.map((list) => (
-                <div key={list.list_id} className="list">
-                    <h2>{list.display_name}</h2>
-                    <div className="book-grid">
-                        {list.books.map((book) => (
-                            <div
-                                key={book.primary_isbn10}
-                                className="book-card"
-                            >
-                                <img src={book.book_image} alt={book.title} />
-                                <div className="book-details">
-                                    <p>List Ranking: {book.rank}</p>
-                                    <h3>{book.title}</h3>
-                                    <p>{book.description}</p>
-                                    <div className="book-links">
-                                        <a
-                                            href={`https://books.google.com/books?isbn=${book.primary_isbn10}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            See more on Google Books
-                                        </a>
-                                        <a
-                                            href={`https://www.amazon.com/s?k=${book.primary_isbn10}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Buy on Amazon
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
+        <div>
+            <h1>Search Books</h1>
+            <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+            <ul>
+                {books.map((book) => (
+                    <li key={book.id}>{book.volumeInfo.title}</li>
+                ))}
+            </ul>
         </div>
     );
 }
 
-export default BestSellers;
+export default Search;
