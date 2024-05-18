@@ -17,6 +17,18 @@ function BestSellers() {
         fetchLists();
     }, []);
 
+    const openGoogleBooks = (book) => {
+        const isbn = book.primary_isbn10 || book.primary_isbn13;
+        const url = `http://books.google.com/books?vid=ISBN${isbn}`;
+        window.open(url, '_blank');
+    };
+
+    const openAmazon = (book) => {
+        const isbn = book.primary_isbn10 || book.primary_isbn13;
+        const url = `https://www.amazon.com/dp/${isbn}?tag=thenewyorktim-20`;
+        window.open(url, '_blank');
+    };
+
     return (
         <div className="best-sellers">
             <h1>NYT Best Sellers</h1>
@@ -34,6 +46,20 @@ function BestSellers() {
                                     <p>List Ranking: {book.rank}</p>
                                     <h3>{book.title}</h3>
                                     <p>{book.description}</p>
+                                    <div className="book-links">
+                                        <button
+                                            onClick={() =>
+                                                openGoogleBooks(book)
+                                            }
+                                        >
+                                            See more on Google Books
+                                        </button>
+                                        <button
+                                            onClick={() => openAmazon(book)}
+                                        >
+                                            Buy on Amazon
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         ))}
