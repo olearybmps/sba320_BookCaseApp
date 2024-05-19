@@ -33,6 +33,8 @@ function BestSellers() {
     }, []);
 
     // Define functions to open Google Books and Amazon pages for specific book
+    // Extract the ISBN from the book object and construct the appropriate URLs 
+    // for Google Books and Amazon
     const openGoogleBooks = (book) => {
         const isbn = book.primary_isbn10 || book.primary_isbn13;
         const url = `http://books.google.com/books?vid=ISBN${isbn}`;
