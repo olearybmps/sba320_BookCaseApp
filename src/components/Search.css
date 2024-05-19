@@ -1,12 +1,15 @@
+/* Styles for search container */
 .search {
     padding: 20px;
 }
 
+/* Styles for search input container */
 .search-input {
     display: flex;
     margin-bottom: 20px;
 }
 
+/* Styles for search input field */
 .search-input input {
     flex: 1;
     padding: 10px;
@@ -15,6 +18,7 @@
     border-radius: 4px;
 }
 
+/* Styles for search and reset buttons */
 .search-input button {
     padding: 10px 20px;
     font-size: 16px;
@@ -26,10 +30,12 @@
     cursor: pointer;
 }
 
+/* Styles for search and reset buttons on hover */
 .search-input button:hover {
     background-color: #8c8c8c;
 }
 
+/* Styles for book grid */
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -37,6 +43,7 @@
     justify-items: center;
 }
 
+/* Styles for each book card */
 .book-card {
     display: flex;
     flex-direction: column;
@@ -48,6 +55,7 @@
     max-width: 200px;
 }
 
+/* Styles for book image */
 .book-card img {
     width: 100%;
     height: auto;
@@ -56,21 +64,25 @@
     margin-bottom: 10px;
 }
 
+/* Styles for book details */
 .book-details {
     text-align: center;
 }
 
+/* Styles for book title */
 .book-details h3 {
     margin: 0;
     font-size: 16px;
     font-weight: bold;
 }
 
+/* Styles for book author and description */
 .book-details p {
     margin: 5px 0;
     font-size: 14px;
 }
 
+/* Styles for load more button */
 .load-more {
     display: block;
     margin: 20px auto;
@@ -83,14 +95,17 @@
     cursor: pointer;
 }
 
+/* Styles for load more button on hover */
 .load-more:hover {
     background-color: #8c8c8c;
 }
 
+/* Styles for book links container */
 .book-links {
     margin-top: 10px;
 }
 
+/* Styles for book link buttons */
 .book-links button {
     display: block;
     width: 100%;
@@ -105,6 +120,7 @@
     cursor: pointer;
 }
 
+/* Styles for book link buttons on hover */
 .book-links button:hover {
     background-color: #8c8c8c;
 }

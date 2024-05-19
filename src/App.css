@@ -1,17 +1,25 @@
+/* Styles for the root element */
 #root {
+  /* Set the maximum width of the root element */
+  max-width: 1280px;
+  /* Center the content horizontally */
+  margin: 0 auto;
+  /* Center-align the text */
   text-align: center;
 }
 
+/* Styles for the body element */
 body {
+  /* Remove default margin */
   margin: 0;
+  /* Remove default padding */
   padding: 0;
+  /* Add a border around the body */
   border: 1px solid black;
+  /* Set the font family */
   font-family: Arial, Helvetica, sans-serif;
+  /* Set the font size */
   font-size: 16px;
-  color: #000;
+  /* Set the background color */
   background-color: #fff;
-}
-
-img {
-  height: 200px;
 }
