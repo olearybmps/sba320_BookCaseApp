@@ -1,8 +1,19 @@
-# React + Vite
+# SBA 320H - React Web Application Project
+## The Bookcase
+NYTimes and Google Books API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application allows users to:
+See top 5 books for each New York Times Best Seller List from the NYTimes API
+Search for books using the Google Books API
 
-Currently, two official plugins are available:
+##Technologies Used
+- Javascript
+- HTML
+- CSS
+- React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features and Requirements
+- Built with HTML, CSS, JavaScript, REACT, and Redux Toolkit.
+- Frequent commits to GitHub.
+- A README.md file in your GitHub repository
+- Make a request to an external data source like OMDBapi, and insert some of the data retrieved into the DOM
